@@ -1,0 +1,180 @@
+
+Reading configuration from 'Config/config.myLaptop.04'...
+  Using existing results directory, Results/myLaptop...
+
+*** WARNING ***
+**
+**  Making new run directory, 'Results/myLaptop/Run.022',
+**    because the current connfiguration file, 'Config/config.myLaptop.04' 
+**    doesn't match the configuration files, 'config.ert', under:
+**
+**      Results/myLaptop/Run.001
+**      Results/myLaptop/Run.002
+**      Results/myLaptop/Run.003
+**      Results/myLaptop/Run.004
+**      Results/myLaptop/Run.005
+**      Results/myLaptop/Run.006
+**      Results/myLaptop/Run.007
+**      Results/myLaptop/Run.008
+**      Results/myLaptop/Run.009
+**      Results/myLaptop/Run.010
+**      Results/myLaptop/Run.011
+**      Results/myLaptop/Run.012
+**      Results/myLaptop/Run.013
+**      Results/myLaptop/Run.014
+**      Results/myLaptop/Run.015
+**      Results/myLaptop/Run.016
+**      Results/myLaptop/Run.017
+**      Results/myLaptop/Run.018
+**      Results/myLaptop/Run.019
+**      Results/myLaptop/Run.020
+**      Results/myLaptop/Run.021
+**
+*** WARNING ***
+    mkdir Results/myLaptop/Run.022 
+    cp Config/config.myLaptop.04 Results/myLaptop/Run.022/config.ert 
+
+FLOP count 1...
+    mkdir Results/myLaptop/Run.022/FLOPS.001 
+
+  Building ERT core code...
+    gcc -I./Kernels -DERT_FLOP=1 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Drivers/driver1.c -o Results/myLaptop/Run.022/FLOPS.001/driver1.o 
+    gcc -I./Kernels -DERT_FLOP=1 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Kernels/kernel1.c -o Results/myLaptop/Run.022/FLOPS.001/kernel1.o 
+    gcc Results/myLaptop/Run.022/FLOPS.001/driver1.o Results/myLaptop/Run.022/FLOPS.001/kernel1.o -o Results/myLaptop/Run.022/FLOPS.001/driver1.kernel1 
+
+  Running ERT core code...
+    serial
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.001/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.001/try.001 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.001/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.001/try.002 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.001/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.001/try.003 2>&1 
+    touch Results/myLaptop/Run.022/FLOPS.001/run.done 
+
+  Processing results...
+    Results/myLaptop/Run.022/FLOPS.001
+    cat Results/myLaptop/Run.022/FLOPS.001/try.* | ./Scripts/preprocess.py > Results/myLaptop/Run.022/FLOPS.001/pre
+    ./Scripts/maximum.py < Results/myLaptop/Run.022/FLOPS.001/pre > Results/myLaptop/Run.022/FLOPS.001/max
+    ./Scripts/summary.py < Results/myLaptop/Run.022/FLOPS.001/max > Results/myLaptop/Run.022/FLOPS.001/sum
+
+    echo 'load "Results/myLaptop/Run.022/FLOPS.001/graph1.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.001/graph2.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.001/graph3.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.001/graph4.gnu"' | gnuplot
+
+
+FLOP count 2...
+    mkdir Results/myLaptop/Run.022/FLOPS.002 
+
+  Building ERT core code...
+    gcc -I./Kernels -DERT_FLOP=2 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Drivers/driver1.c -o Results/myLaptop/Run.022/FLOPS.002/driver1.o 
+    gcc -I./Kernels -DERT_FLOP=2 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Kernels/kernel1.c -o Results/myLaptop/Run.022/FLOPS.002/kernel1.o 
+    gcc Results/myLaptop/Run.022/FLOPS.002/driver1.o Results/myLaptop/Run.022/FLOPS.002/kernel1.o -o Results/myLaptop/Run.022/FLOPS.002/driver1.kernel1 
+
+  Running ERT core code...
+    serial
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.002/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.002/try.001 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.002/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.002/try.002 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.002/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.002/try.003 2>&1 
+    touch Results/myLaptop/Run.022/FLOPS.002/run.done 
+
+  Processing results...
+    Results/myLaptop/Run.022/FLOPS.002
+    cat Results/myLaptop/Run.022/FLOPS.002/try.* | ./Scripts/preprocess.py > Results/myLaptop/Run.022/FLOPS.002/pre
+    ./Scripts/maximum.py < Results/myLaptop/Run.022/FLOPS.002/pre > Results/myLaptop/Run.022/FLOPS.002/max
+    ./Scripts/summary.py < Results/myLaptop/Run.022/FLOPS.002/max > Results/myLaptop/Run.022/FLOPS.002/sum
+
+    echo 'load "Results/myLaptop/Run.022/FLOPS.002/graph1.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.002/graph2.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.002/graph3.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.002/graph4.gnu"' | gnuplot
+
+
+FLOP count 4...
+    mkdir Results/myLaptop/Run.022/FLOPS.004 
+
+  Building ERT core code...
+    gcc -I./Kernels -DERT_FLOP=4 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Drivers/driver1.c -o Results/myLaptop/Run.022/FLOPS.004/driver1.o 
+    gcc -I./Kernels -DERT_FLOP=4 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Kernels/kernel1.c -o Results/myLaptop/Run.022/FLOPS.004/kernel1.o 
+    gcc Results/myLaptop/Run.022/FLOPS.004/driver1.o Results/myLaptop/Run.022/FLOPS.004/kernel1.o -o Results/myLaptop/Run.022/FLOPS.004/driver1.kernel1 
+
+  Running ERT core code...
+    serial
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.004/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.004/try.001 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.004/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.004/try.002 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.004/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.004/try.003 2>&1 
+    touch Results/myLaptop/Run.022/FLOPS.004/run.done 
+
+  Processing results...
+    Results/myLaptop/Run.022/FLOPS.004
+    cat Results/myLaptop/Run.022/FLOPS.004/try.* | ./Scripts/preprocess.py > Results/myLaptop/Run.022/FLOPS.004/pre
+    ./Scripts/maximum.py < Results/myLaptop/Run.022/FLOPS.004/pre > Results/myLaptop/Run.022/FLOPS.004/max
+    ./Scripts/summary.py < Results/myLaptop/Run.022/FLOPS.004/max > Results/myLaptop/Run.022/FLOPS.004/sum
+
+    echo 'load "Results/myLaptop/Run.022/FLOPS.004/graph1.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.004/graph2.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.004/graph3.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.004/graph4.gnu"' | gnuplot
+
+
+FLOP count 8...
+    mkdir Results/myLaptop/Run.022/FLOPS.008 
+
+  Building ERT core code...
+    gcc -I./Kernels -DERT_FLOP=8 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Drivers/driver1.c -o Results/myLaptop/Run.022/FLOPS.008/driver1.o 
+    gcc -I./Kernels -DERT_FLOP=8 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Kernels/kernel1.c -o Results/myLaptop/Run.022/FLOPS.008/kernel1.o 
+    gcc Results/myLaptop/Run.022/FLOPS.008/driver1.o Results/myLaptop/Run.022/FLOPS.008/kernel1.o -o Results/myLaptop/Run.022/FLOPS.008/driver1.kernel1 
+
+  Running ERT core code...
+    serial
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.008/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.008/try.001 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.008/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.008/try.002 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.008/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.008/try.003 2>&1 
+    touch Results/myLaptop/Run.022/FLOPS.008/run.done 
+
+  Processing results...
+    Results/myLaptop/Run.022/FLOPS.008
+    cat Results/myLaptop/Run.022/FLOPS.008/try.* | ./Scripts/preprocess.py > Results/myLaptop/Run.022/FLOPS.008/pre
+    ./Scripts/maximum.py < Results/myLaptop/Run.022/FLOPS.008/pre > Results/myLaptop/Run.022/FLOPS.008/max
+    ./Scripts/summary.py < Results/myLaptop/Run.022/FLOPS.008/max > Results/myLaptop/Run.022/FLOPS.008/sum
+
+    echo 'load "Results/myLaptop/Run.022/FLOPS.008/graph1.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.008/graph2.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.008/graph3.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.008/graph4.gnu"' | gnuplot
+
+
+FLOP count 16...
+    mkdir Results/myLaptop/Run.022/FLOPS.016 
+
+  Building ERT core code...
+    gcc -I./Kernels -DERT_FLOP=16 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Drivers/driver1.c -o Results/myLaptop/Run.022/FLOPS.016/driver1.o 
+    gcc -I./Kernels -DERT_FLOP=16 -DERT_ALIGN=64 -DERT_MEMORY_MAX=1073741824 -DERT_WORKING_SET_MIN=1 -DERT_TRIALS_MIN=1 -c ./Kernels/kernel1.c -o Results/myLaptop/Run.022/FLOPS.016/kernel1.o 
+    gcc Results/myLaptop/Run.022/FLOPS.016/driver1.o Results/myLaptop/Run.022/FLOPS.016/kernel1.o -o Results/myLaptop/Run.022/FLOPS.016/driver1.kernel1 
+
+  Running ERT core code...
+    serial
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.016/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.016/try.001 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.016/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.016/try.002 2>&1 
+    (export OMP_NUM_THREADS=1; mpirun -np 1 Results/myLaptop/Run.022/FLOPS.016/driver1.kernel1 ) > Results/myLaptop/Run.022/FLOPS.016/try.003 2>&1 
+    touch Results/myLaptop/Run.022/FLOPS.016/run.done 
+
+  Processing results...
+    Results/myLaptop/Run.022/FLOPS.016
+    cat Results/myLaptop/Run.022/FLOPS.016/try.* | ./Scripts/preprocess.py > Results/myLaptop/Run.022/FLOPS.016/pre
+    ./Scripts/maximum.py < Results/myLaptop/Run.022/FLOPS.016/pre > Results/myLaptop/Run.022/FLOPS.016/max
+    ./Scripts/summary.py < Results/myLaptop/Run.022/FLOPS.016/max > Results/myLaptop/Run.022/FLOPS.016/sum
+
+    echo 'load "Results/myLaptop/Run.022/FLOPS.016/graph1.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.016/graph2.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.016/graph3.gnu"' | gnuplot
+    echo 'load "Results/myLaptop/Run.022/FLOPS.016/graph4.gnu"' | gnuplot
+
+
+Gathering the final roofline results...
+    cat Results/myLaptop/Run.022/*/sum | ./Scripts/roofline.py
+    echo 'load "Results/myLaptop/Run.022/roofline.gnu"' | gnuplot
+
++-------------------------------------------------
+| Empirical roofline graph:    'Results/myLaptop/Run.022/roofline.ps'
+| Empirical roofline database: 'Results/myLaptop/Run.022/roofline.json'
++-------------------------------------------------
+

@@ -1,0 +1,8 @@
+# A batch script to run the ERT on laptop and log the results
+
+cd ..
+
+./ert Config/config.myLaptop.01 --verbose=2 > log/log.myLaptop.01
+./ert Config/config.myLaptop.02 --verbose=2 > log/log.myLaptop.02
+./ert Config/config.myLaptop.03 --verbose=2 > log/log.myLaptop.03
+./ert Config/config.myLaptop.04 --verbose=2 > log/log.myLaptop.04

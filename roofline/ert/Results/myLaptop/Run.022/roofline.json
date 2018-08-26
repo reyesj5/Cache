@@ -1,0 +1,143 @@
+{
+   "empirical": {
+      "gbytes": {
+         "data": [
+            [
+               "DRAM", 
+               5.78
+            ]
+         ], 
+         "metadata": {
+            "TIMESTAMP_DATA": [
+               1535296541.29, 
+               1535296654.06, 
+               1535296424.03
+            ], 
+            "FLOPS": 1, 
+            "TIMESTAMP_DB": 1535300202.291213
+         }
+      }, 
+      "gflops": {
+         "data": [
+            [
+               "GFLOPs", 
+               1.08
+            ]
+         ], 
+         "metadata": {
+            "TIMESTAMP_DATA": [
+               1535297910.64, 
+               1535298178.94, 
+               1535297642.44
+            ], 
+            "FLOPS": 8, 
+            "TIMESTAMP_DB": 1535300202.291014
+         }
+      }, 
+      "metadata": {
+         "ERT_VERSION": "1.1.0", 
+         "HOSTNAME": [
+            "atajo-Inspiron-15-7568", 
+            [], 
+            [
+               "127.0.1.1"
+            ]
+         ], 
+         "CONFIG": {
+            "ERT_WORKING_SET_MIN": [
+               "1"
+            ], 
+            "ERT_CFLAGS": [], 
+            "ERT_CC": [
+               "gcc"
+            ], 
+            "ERT_MPI_CFLAGS": [
+               "-I/usr/include/mpi"
+            ], 
+            "ERT_MPI_LDFLAGS": [
+               "-lmpi"
+            ], 
+            "ERT_MEMORY_MAX": [
+               "1073741824"
+            ], 
+            "ERT_PROCS_THREADS": [
+               "1-4"
+            ], 
+            "ERT_LDFLAGS": [], 
+            "ERT_LDLIBS": [], 
+            "ERT_RUN": [
+               "export", 
+               "OMP_NUM_THREADS=ERT_OPENMP_THREADS;", 
+               "mpirun", 
+               "-np", 
+               "ERT_MPI_PROCS", 
+               "ERT_CODE"
+            ], 
+            "ERT_FLOPS": [
+               "1,2,4,8,16"
+            ], 
+            "ERT_OPENMP_CFLAGS": [
+               "-fopenmp"
+            ], 
+            "ERT_MPI": [
+               "False"
+            ], 
+            "ERT_TRIALS_MIN": [
+               "1"
+            ], 
+            "ERT_DRIVER": [
+               "driver1"
+            ], 
+            "ERT_RESULTS": [
+               "Results/myLaptop"
+            ], 
+            "ERT_OPENMP": [
+               "False"
+            ], 
+            "ERT_MPI_PROCS": [
+               "1,2,4,8"
+            ], 
+            "ERT_KERNEL": [
+               "kernel1"
+            ], 
+            "ERT_GPU": [
+               false
+            ], 
+            "ERT_OPENMP_THREADS": [
+               "1,2,4,8"
+            ], 
+            "ERT_LD": [
+               "gcc"
+            ], 
+            "ERT_NUM_EXPERIMENTS": [
+               "3"
+            ], 
+            "ERT_OPENMP_LDFLAGS": [
+               "-fopenmp"
+            ], 
+            "ERT_ALIGN": [
+               "64"
+            ], 
+            "ERT_GNUPLOT": [
+               "gnuplot"
+            ]
+         }, 
+         "UNAME": [
+            "Linux", 
+            "atajo-Inspiron-15-7568", 
+            "4.15.0-33-generic", 
+            "#36-Ubuntu SMP Wed Aug 15 16:00:05 UTC 2018", 
+            "x86_64", 
+            "x86_64"
+         ]
+      }
+   }, 
+   "spec": {
+      "gbytes": {
+         "data": []
+      }, 
+      "gflops": {
+         "data": []
+      }
+   }
+}
