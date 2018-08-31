@@ -1,0 +1,13 @@
+Steps:
+1. Get roofline code from repository
+2. Change the configuration files depending on which compiler and linker/loader will be used.
+	a. Using mpicc as a wrapper for mpi in gcc
+	b. using -fopenmp to direct compiler to openmp
+	c. Changing the Results to a specified relative directory
+3. Install java 8 or newer
+	a. sudo apt install openjdk-8-jre-headless
+	b. sudo apt-get install default-jre
+	c. sudo apt-get install default-jdk
+	d. I had the issue that the "canberra-gtk-module" was not installed correctly, or did not have the 32-bit version. This was fixed with the following commands:
+		sudo apt-get install libcanberra-gtk-module:i386
+		sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
