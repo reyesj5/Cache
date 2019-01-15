@@ -34,9 +34,18 @@ def identity(n):
 
 # returns a matrix WxL of random values
 def random_matrix(w, l):
+	result = []
+	# iterate through rows
+	for i in range(w):
+		row = []
+		# iterate through columns 
+		for j in range(l):
+			row.append(random.randint(0,4000))
+		result.append(row)
+	return result
 
 # multiplies two matrices by each other
-def mult(a,b):
+def mult_matrix(a,b):
 	# Checks if matrices can be multiplied: m×n by n×p = m×p
 	if len(a[0]) != len(b):
 		raise ValueError("Matrices with these dimensions cannot be multiplied.")
@@ -57,7 +66,7 @@ def mult(a,b):
 	return result
 
 # Sums matrix b to matrix a
-def sum(a,b):
+def sum_matrix(a,b):
 	# Checks if matrices can be sum: m×n by m×n = m×n
 	if (len(a) != len(b)) or (len(a[0]) != len(b[0])):
 		raise ValueError("Matrices with these dimensions cannot be summed.")
@@ -79,11 +88,16 @@ def transpose(matrix):
 	return result
 
 # converts a matrix to a list
-def matrix2list():
-	pass
+def matrix2list(matrix):
+	result = []
+	# iterate through rows
+	for i in range(len(matrix)):
+		# iterate through columns 
+		for j in range(len(matrix[0])):
+			result.append(matrix[i][j])
+	return result
 
 # Prints the given matrix
 def print_matrix(matrix):
 	for r in matrix:
 		print(r)
-	print

@@ -1,4 +1,5 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
+# coding=utf-8
 """
 Produces load on all available CPU cores
 Source: https://gist.github.com/tott/3895832
@@ -11,7 +12,7 @@ def f(x):
     while True:
         x*x
 
-if __name__ == '__main__':
+def load_cpu():
     processes = cpu_count()
     print 'utilizing %d cores\n' % processes
     pool = Pool(processes)

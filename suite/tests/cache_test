@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+# coding=utf-8
+
+import os.path
+import threading
+import subprocess
+import cProfile
+import re
+import time
+import list_tests
+import matrix_tests
+from threading import Thread
+
+def run_scripts():
+	global running
+	running = True
+	matrix_tests.test4()
+	running = False
+	return
+
+def cache_info(struct):
+	n = 1
+	while os.path.exists('../logs/log_' + struct + '_test_' + str(n)):
+		n += 1
+	path = '../logs/log_' + struct + '_test_' + str(n)
+	print ("Saving log at: " + path)
+	log = open(path, 'a')  # so that data written to it will be appended
+	while running:
+		log.flush()
+		cache = subprocess.Popen(['date +"%Y-%m-%d %H:%M:%S:%3N"; lscpu | grep "cache"; cat /proc/meminfo | grep "Cached"; echo'], stdout=log, stderr=log, shell=True)
+		cache.wait()
+		log.flush()
+		time.sleep(5)
+	log.close()
+	return
+
+if __name__ == '__main__':
+	# Measuring how long a script runs
+	start = time.time()
+
+	Thread(target = run_scripts).start()
+	Thread(target = cache_info, args = ["matrices"]).start()
+
+	print 'Script took', time.time()-start, 'seconds.'
