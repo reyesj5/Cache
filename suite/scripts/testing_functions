@@ -31,12 +31,12 @@ n = 10
 m = 10
 print_matrix(empty_matrix(5,4))
 print_matrix(random_matrix(5,4))
-print_matrix(identity(5))
+print_matrix(identity_matrix(5))
 print_matrix(transpose(X))
-print_matrix(mult_matrix(X, identity(2)))
+print_matrix(mult_matrix(X, identity_matrix(2)))
 print_matrix(sum_matrix(X,X))
 print(matrix2list(X))
-print(matrix2list(identity(5)))
+print(matrix2list(identity_matrix(5)))
 print_matrix(list2matrix(expandByN([3,4,5], 5)))
 
 print("*************************** Matrices *************************************")
@@ -46,4 +46,4 @@ print("\n*************************** cProfile **********************************
 cProfile.run('transpose("X")')
 print("*************************** cProfile *************************************")
 
-print 'Script took', time.time()-start, 'seconds.'
+print('Script took', time.time()-start, 'seconds.')

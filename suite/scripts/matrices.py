@@ -15,7 +15,7 @@ def empty_matrix(w, l):
 	return result
 
 # returns the nxn identity matrix 
-def identity(n):
+def identity_matrix(n):
 	result = []
 	r, c = 0.0, 0.0
 	# iterate through rows

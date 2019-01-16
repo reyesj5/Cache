@@ -3,6 +3,7 @@
 
 from math import sqrt
 
+# Working with recursion and stack
 # return nth fibonacci number
 def fib(n):
   if (n==0):
@@ -10,8 +11,8 @@ def fib(n):
   elif (n==1):
     return 1
   else:
-    return fib(n-1) + fib(n-2)
+  	return fib(n-1) + fib(n-2)
 
 # efficient math formula for fib
-def fib2(n):
+def fib_formula(n):
     return ((1+sqrt(5))**n-(1-sqrt(5))**n)/(2**n*sqrt(5))

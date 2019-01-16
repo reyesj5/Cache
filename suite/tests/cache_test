@@ -10,6 +10,12 @@ import time
 import list_tests
 import matrix_tests
 from threading import Thread
+import multiprocessing
+
+def worker():
+    #worker function
+    Thread(target = run_scripts).start()
+	Thread(target = cache_info, args = ["matrices"]).start()
 
 def run_scripts():
 	global running
@@ -37,8 +43,10 @@ def cache_info(struct):
 if __name__ == '__main__':
 	# Measuring how long a script runs
 	start = time.time()
-
-	Thread(target = run_scripts).start()
-	Thread(target = cache_info, args = ["matrices"]).start()
+	jobs = []
+    for i in range(50):
+        p = multiprocessing.Process(target=worker)
+        jobs.append(p)
+        p.start()
 
 	print 'Script took', time.time()-start, 'seconds.'
