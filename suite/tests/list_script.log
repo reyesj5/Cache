@@ -1,0 +1,540 @@
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "./cache_test", line 48, in cache_info
+    cache = subprocess.Popen(['date +"%Y-%m-%d %H:%M:%S:%3N"; lscpu | grep "cache"; cat /proc/meminfo | grep "Cached"; echo'], stdout=log, stderr=log, shell=True)
+  File "/usr/lib/python2.7/subprocess.py", line 394, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 938, in _execute_child
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "./cache_test", line 48, in cache_info
+    cache = subprocess.Popen(['date +"%Y-%m-%d %H:%M:%S:%3N"; lscpu | grep "cache"; cat /proc/meminfo | grep "Cached"; echo'], stdout=log, stderr=log, shell=True)
+  File "/usr/lib/python2.7/subprocess.py", line 394, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 938, in _execute_child
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "./cache_test", line 24, in run_test
+    test()
+  File "/home/atajo/Desktop/cache/suite/tests/list_tests.py", line 46, in test3
+    list1 = expandByN(list1, 20)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+MemoryError
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "./cache_test", line 24, in run_test
+    test()
+  File "/home/atajo/Desktop/cache/suite/tests/list_tests.py", line 46, in test3
+    list1 = expandByN(list1, 20)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+MemoryError
+
+
+
+
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "./cache_test", line 24, in run_test
+    print 'process id:', os.getpid()
+  File "/home/atajo/Desktop/cache/suite/tests/list_tests.py", line 46, in test3
+    list1 = expandByN(list1, 20)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+MemoryError
+
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "./cache_test", line 24, in run_test
+    print 'process id:', os.getpid()
+  File "/home/atajo/Desktop/cache/suite/tests/list_tests.py", line 46, in test3
+    list1 = expandByN(list1, 20)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+  File "../scripts/lists.py", line 35, in expandByN
+    return expandByN(list + dup, n - 1)
+MemoryError
+
+Traceback (most recent call last):
+  File "./cache_test", line 140, in <module>
+    time.sleep(1)
+KeyboardInterrupt
+Process Process-10:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20407
+Lists Test 1
+process id: 20407
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_31.log
+test1 took 3503.28982186 seconds.
+parent process: 20374
+process id: 20407
+Lists Test 2
+process id: 20407
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_1.log
+test2 took 31182.0149941 seconds.
+Process Process-1:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20378
+Lists Test 1
+process id: 20378
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_22.log
+test1 took 3503.87670302 seconds.
+parent process: 20374
+process id: 20378
+Lists Test 2
+process id: 20378
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_3.log
+test2 took 31194.3051181 seconds.
+Process Process-12:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20410
+Lists Test 1
+process id: 20410
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_29.log
+test1 took 3503.01701903 seconds.
+parent process: 20374
+process id: 20410
+Lists Test 2
+process id: 20410
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_5.log
+test2 took 31209.5545359 seconds.
+Process Process-3:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20380
+Lists Test 1
+process id: 20380
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_21.log
+test1 took 3504.13149905 seconds.
+parent process: 20374
+process id: 20380
+Lists Test 2
+process id: 20380
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_6.log
+test2 took 31218.614599 seconds.
+Process Process-4:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20381
+Lists Test 1
+process id: 20381
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_30.log
+test1 took 3503.32534695 seconds.
+parent process: 20374
+process id: 20381
+Lists Test 2
+process id: 20381
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_10.log
+test2 took 31218.3169062 seconds.
+Process Process-2:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20379
+Lists Test 1
+process id: 20379
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_23.log
+test1 took 3502.15845323 seconds.
+parent process: 20374
+process id: 20379
+Lists Test 2
+process id: 20379
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_4.log
+test2 took 31225.3578019 seconds.
+Process Process-5:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20382
+Lists Test 1
+process id: 20382
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_22.log
+test1 took 3503.13420105 seconds.
+parent process: 20374
+process id: 20382
+Lists Test 2
+process id: 20382
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_11.log
+test2 took 31233.650512 seconds.
+Process Process-11:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20409
+Lists Test 1
+process id: 20409
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_27.log
+test1 took 3502.27067995 seconds.
+parent process: 20374
+process id: 20409
+Lists Test 2
+process id: 20409
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_8.log
+test2 took 31245.8734798 seconds.
+Process Process-8:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20391
+Lists Test 1
+process id: 20391
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_26.log
+test1 took 3501.81691003 seconds.
+parent process: 20374
+process id: 20391
+Lists Test 2
+process id: 20391
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_7.log
+test2 took 31255.4794841 seconds.
+Process Process-6:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20384
+Lists Test 1
+process id: 20384
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_25.log
+test1 took 3501.57296896 seconds.
+parent process: 20374
+process id: 20384
+Lists Test 2
+process id: 20384
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_2.log
+test2 took 31259.6744521 seconds.
+Process Process-9:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20392
+Lists Test 1
+process id: 20392
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_28.log
+test1 took 3501.40490103 seconds.
+parent process: 20374
+process id: 20392
+Lists Test 2
+process id: 20392
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_12.log
+test2 took 31272.0931761 seconds.
+Process Process-7:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 93, in worker
+    if iterations == None:
+  File "/usr/lib/python2.7/threading.py", line 940, in join
+    self.__block.wait()
+  File "/usr/lib/python2.7/threading.py", line 340, in wait
+    waiter.acquire()
+KeyboardInterrupt
+parent process: 20374
+process id: 20386
+Lists Test 1
+process id: 20386
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/12_cores_225000_4000_24.log
+test1 took 3501.64799905 seconds.
+parent process: 20374
+process id: 20386
+Lists Test 2
+process id: 20386
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_9.log
+test2 took 31274.4297259 seconds.

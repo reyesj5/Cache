@@ -103,11 +103,12 @@ def test7(n = 24000, size = 1000):
 		matrix2list(matrix)
 		#print 'Iteration', i, 'took', time.time()-start, 'seconds.'
 
+tests = [test1,test2,test3,test4,test5,test6,test7]
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 def worker(test = 1):
     #worker function
-    tests = [test1,test2,test3,test4,test5,test6,test7]
     try:
     	tests[test-1]()
     except:

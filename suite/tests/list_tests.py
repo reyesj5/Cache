@@ -36,13 +36,13 @@ def test2(n = 1250000, size = 4000):
 		#print 'Iteration', i, 'took', time.time()-start, 'seconds.'
 
 # Testing random list of 100 elements expanded by iteself 1200 times.
-def test3(n = 1200):
+def test3(n = 1200, size = 100, expand = 20):
 	print('Lists Test 3')
 	for i in range(n):
 		# Measuring how long a script runs
 		#start = time.time()
 		#print 'Currently on the', i, 'iteration.'
-		list1 = random_list(100)
+		list1 = random_list(size)
 		list1 = expandByN(list1, 20)
 		#print 'Iteration', i, 'took', time.time()-start, 'seconds.'
 
@@ -72,7 +72,7 @@ def test5(n = 1250000, size = 4000):
 # Testing random list of 4000 elements converted to matrix 1250000 times
 def test6(n = 1250000, size = 4000):
 	print('Lists Test 6')
-	for i in range(4000):
+	for i in range(5):
 		# Measuring how long a script runs
 		#start = time.time()
 		#print 'Currently on the', i, 'iteration.'
@@ -80,13 +80,15 @@ def test6(n = 1250000, size = 4000):
 		list2matrix(list)
 		#print 'Iteration', i, 'took', time.time()-start, 'seconds.'
 
+tests = [test1,test2,test3,test4,test5,test6]
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 def worker(test = 1):
     #worker function
-    tests = [test1,test2,test3,test4,test5,test6]
     try:
     	tests[test-1]()
+    	#print(tests[test-1].__name__)
     except:
     	raise ValueError("Test not implemented or ran out of memory!")
 

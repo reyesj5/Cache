@@ -13,7 +13,7 @@ args = sys.argv
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 # Testing the use of a stack with recursion and increasing fibonacci sequence.
-def test1(n = 45):
+def test1(n = 45, name = 'fib'):
 	print('Stack Test 1')
 	for i in range(n):
 		# Measuring how long a script runs
@@ -37,23 +37,22 @@ def test2(n = 50, ith = 40):
 		#print 'Iteration', i, 'took', time.time()-start, 'seconds.'
 
 # Testing the use of a stack with recursion and fibonacci seqeunce multiple times (medium) stack.
-def test3(n = 30, ini = 40, ith = 42):
+def test3(n = 30, ith = 40):
 	print('Stack Test 3')
 	for i in range(n):
 		# Measuring how long a script runs
 		start = time.time()
 		print 'Currently on the', i, 'iteration.'
-		for j in range(ini,ith):
+		for j in range(ith,ith+2):
 			nth = fib(j)
 		print 'Iteration', i, 'took', time.time()-start, 'seconds.'
 
+tests = [test1,test2,test3]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 def worker(test = 1):
     #worker function
-    tests = [test1,test2,test3]
     try:
     	tests[test-1]()
     except:

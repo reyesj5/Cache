@@ -1,0 +1,14 @@
+#!/bin/sh
+for i in 1 2 3 4 5
+do
+	echo "Running script iteration $i"
+	echo "Lists..."
+	#./cache_test 12 lists >> list_script.log 2>&1
+	./cache_test 12 lists 
+	echo "Matrices..."
+	#./cache_test 12 matrices >> matrices_script.log 2>&1
+	./cache_test 12 matrices
+	echo "Stack..."
+	#./cache_test 12 stack >> stack_script.log 2>&1
+	./cache_test 12 stack
+done

@@ -1,0 +1,49 @@
+Lists Test 1
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/1_cores_10_4000_12.log
+test1 took 0.0204119682312 seconds.
+Lists Test 2
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/1_cores_10_4000_11.log
+test2 took 0.0205738544464 seconds.
+Lists Test 3
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_3/1_cores_10_100_3.log
+test3 took 13.9390790462 seconds.
+Lists Test 4
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_4/1_cores_10_4000_5.log
+test4 took 0.0210099220276 seconds.
+Lists Test 5
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_5/1_cores_10_4000_5.log
+test5 took 0.0143980979919 seconds.
+Lists Test 6
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_6/1_cores_10_4000_4.log
+test6 took 0.0163459777832 seconds.
+All processes done
+Script took 65.0750989914 seconds.
+Process Process-1:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./cache_test", line 85, in worker
+    defaults =  inspect.getargspec(tests[test])[3]
+TypeError: list indices must be integers, not NoneType
+Lists Test 1
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_1/1_cores_10_4000_13.log
+test1 took 0.0202388763428 seconds.
+Lists Test 2
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/1_cores_10_4000_12.log
+test2 took 0.017256975174 seconds.
+Lists Test 3
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_3/1_cores_10_100_4.log
+test3 took 14.028742075 seconds.
+Lists Test 4
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_4/1_cores_10_4000_6.log
+test4 took 0.0206229686737 seconds.
+Lists Test 5
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_5/1_cores_10_4000_6.log
+test5 took 0.023698091507 seconds.
+Lists Test 6
+Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_6/1_cores_10_4000_5.log
+test6 took 0.0128109455109 seconds.
+All processes done
+Script took 65.0794808865 seconds.
