@@ -1,0 +1,202 @@
+  cache-misses                                       [Hardware event]
+  cache-references                                   [Hardware event]
+  cpu-cycles OR cycles                               [Hardware event]
+  cpu-clock                                          [Software event]
+  L1-dcache-load-misses                              [Hardware cache event]
+  L1-dcache-loads                                    [Hardware cache event]
+  L1-dcache-stores                                   [Hardware cache event]
+  L1-icache-load-misses                              [Hardware cache event]
+  LLC-load-misses                                    [Hardware cache event]
+  LLC-loads                                          [Hardware cache event]
+  LLC-store-misses                                   [Hardware cache event]
+  LLC-stores                                         [Hardware cache event]
+  branch-load-misses                                 [Hardware cache event]
+  branch-loads                                       [Hardware cache event]
+  dTLB-load-misses                                   [Hardware cache event]
+  dTLB-loads                                         [Hardware cache event]
+  dTLB-store-misses                                  [Hardware cache event]
+  dTLB-stores                                        [Hardware cache event]
+  iTLB-load-misses                                   [Hardware cache event]
+  iTLB-loads                                         [Hardware cache event]
+  node-load-misses                                   [Hardware cache event]
+  node-loads                                         [Hardware cache event]
+  node-store-misses                                  [Hardware cache event]
+  node-stores                                        [Hardware cache event]
+  branch-instructions OR cpu/branch-instructions/    [Kernel PMU event]
+  cache-misses OR cpu/cache-misses/                  [Kernel PMU event]
+  cache-references OR cpu/cache-references/          [Kernel PMU event]
+  cpu-cycles OR cpu/cpu-cycles/                      [Kernel PMU event]
+  mem-loads OR cpu/mem-loads/                        [Kernel PMU event]
+  mem-stores OR cpu/mem-stores/                      [Kernel PMU event]
+  power/energy-cores/                                [Kernel PMU event]
+  power/energy-ram/                                  [Kernel PMU event]
+
+cache:
+  l1d.replacement                                   
+       [L1D data line replacements]
+  l1d_pend_miss.fb_full                             
+       [Number of times a request needed a FB entry but there was no entry
+        available for it. That is the FB unavailability was dominant reason
+        for blocking the request. A request includes cacheable/uncacheable
+        demands that is load, store or SW prefetch]
+  l1d_pend_miss.pending                             
+       [L1D miss outstandings duration in cycles]
+  l1d_pend_miss.pending_cycles                      
+       [Cycles with L1D load Misses outstanding]
+  l1d_pend_miss.pending_cycles_any                  
+       [Cycles with L1D load Misses outstanding from any thread on physical
+        core]
+  l2_lines_in.all                                   
+       [L2 cache lines filling L2]
+  l2_lines_out.non_silent                           
+       [Counts the number of lines that are evicted by L2 cache when triggered
+        by an L2 cache fill. Those lines are in Modified state. Modified lines
+        are written back to L3]
+  l2_lines_out.silent                               
+       [Counts the number of lines that are silently dropped by L2 cache when
+        triggered by an L2 cache fill. These lines are typically in Shared or
+        Exclusive state. A non-threaded event]
+  l2_lines_out.useless_hwpf                         
+       [Counts the number of lines that have been hardware prefetched but not
+        used and now evicted by L2 cache]
+  l2_lines_out.useless_pref                         
+       [Counts the number of lines that have been hardware prefetched but not
+        used and now evicted by L2 cache]
+  l2_rqsts.all_code_rd                              
+       [L2 code requests]
+  l2_rqsts.all_demand_data_rd                       
+       [Demand Data Read requests]
+  l2_rqsts.all_demand_miss                          
+       [Demand requests that miss L2 cache]
+  l2_rqsts.all_demand_references                    
+       [Demand requests to L2 cache]
+  l2_rqsts.all_pf                                   
+       [Requests from the L1/L2/L3 hardware prefetchers or Load software
+        prefetches]
+  l2_rqsts.all_rfo                                  
+       [RFO requests to L2 cache]
+  l2_rqsts.code_rd_hit                              
+       [L2 cache hits when fetching instructions, code reads]
+  l2_rqsts.code_rd_miss                             
+       [L2 cache misses when fetching instructions]
+  l2_rqsts.demand_data_rd_hit                       
+       [Demand Data Read requests that hit L2 cache]
+  l2_rqsts.demand_data_rd_miss                      
+       [Demand Data Read miss L2, no rejects]
+  l2_rqsts.miss                                     
+       [All requests that miss L2 cache]
+  l2_rqsts.pf_hit                                   
+       [Requests from the L1/L2/L3 hardware prefetchers or Load software
+        prefetches that hit L2 cache]
+  l2_rqsts.pf_miss                                  
+       [Requests from the L1/L2/L3 hardware prefetchers or Load software
+        prefetches that miss L2 cache]
+  l2_rqsts.references                               
+       [All L2 requests]
+  l2_rqsts.rfo_hit                                  
+       [RFO requests that hit L2 cache]
+  l2_rqsts.rfo_miss                                 
+       [RFO requests that miss L2 cache]
+  l2_trans.l2_wb                                    
+       [L2 writebacks that access L2 cache]
+  longest_lat_cache.miss                            
+       [Core-originated cacheable demand requests missed L3 Spec update:
+        SKL057]
+  longest_lat_cache.reference                       
+       [Core-originated cacheable demand requests that refer to L3 Spec
+        update: SKL057]
+  mem_inst_retired.all_loads                        
+       [All retired load instructions Supports address when precise (Precise
+        event)]
+  mem_inst_retired.all_stores                       
+       [All retired store instructions Supports address when precise (Precise
+        event)]
+  mem_inst_retired.lock_loads                       
+       [Retired load instructions with locked access Supports address when
+        precise (Precise event)]
+  mem_inst_retired.split_loads                      
+       [Retired load instructions that split across a cacheline boundary
+        Supports address when precise (Precise event)]
+  mem_inst_retired.split_stores                     
+       [Retired store instructions that split across a cacheline boundary
+        Supports address when precise (Precise event)]
+  mem_inst_retired.stlb_miss_loads                  
+       [Retired load instructions that miss the STLB Supports address when
+        precise (Precise event)]
+  mem_inst_retired.stlb_miss_stores                 
+       [Retired store instructions that miss the STLB Supports address when
+        precise (Precise event)]
+  mem_load_l3_hit_retired.xsnp_hit                  
+       [Retired load instructions which data sources were L3 and cross-core
+        snoop hits in on-pkg core cache Supports address when precise (Precise
+        event)]
+  mem_load_l3_hit_retired.xsnp_hitm                 
+       [Retired load instructions which data sources were HitM responses from
+        shared L3 Supports address when precise (Precise event)]
+  mem_load_l3_hit_retired.xsnp_miss                 
+       [Retired load instructions which data sources were L3 hit and
+        cross-core snoop missed in on-pkg core cache Supports address when
+        precise (Precise event)]
+  mem_load_l3_hit_retired.xsnp_none                 
+       [Retired load instructions which data sources were hits in L3 without
+        snoops required Supports address when precise (Precise event)]
+  mem_load_misc_retired.uc                          
+       [Retired instructions with at least 1 uncacheable load or lock Supports
+        address when precise (Precise event)]
+  mem_load_retired.fb_hit                           
+       [Retired load instructions which data sources were load missed L1 but
+        hit FB due to preceding miss to the same cache line with data not
+        ready Supports address when precise (Precise event)]
+  mem_load_retired.l1_hit                           
+       [Retired load instructions with L1 cache hits as data sources Supports
+        address when precise (Precise event)]
+  mem_load_retired.l1_miss                          
+       [Retired load instructions missed L1 cache as data sources Supports
+        address when precise (Precise event)]
+  mem_load_retired.l2_hit                           
+       [Retired load instructions with L2 cache hits as data sources Supports
+        address when precise (Precise event)]
+  mem_load_retired.l2_miss                          
+       [Retired load instructions missed L2 cache as data sources Supports
+        address when precise (Precise event)]
+  mem_load_retired.l3_hit                           
+       [Retired load instructions with L3 cache hits as data sources Supports
+        address when precise (Precise event)]
+  mem_load_retired.l3_miss                          
+       [Retired load instructions missed L3 cache as data sources Supports
+        address when precise (Precise event)]
+
+memory:
+  cycle_activity.cycles_l3_miss                     
+       [Cycles while L3 cache miss demand load is outstanding]
+  cycle_activity.stalls_l3_miss                     
+       [Execution stalls while L3 cache miss demand load is outstanding]
+
+FLOPS:
+  GFLOPs
+	[Giga Floating Point Operations Per Second]
+Memory_BW:
+  MLP
+	[Memory-Level-Parallelism (average number of L1 miss demand load when there is at least 1 such miss)]
+Memory_Bound:
+  Load_Miss_Real_Latency
+	[Actual Average Latency for L1 data-cache miss demand loads]
+  MLP
+	[Memory-Level-Parallelism (average number of L1 miss demand load when there is at least 1 such miss)]
+Memory_Lat:
+  Load_Miss_Real_Latency
+	[Actual Average Latency for L1 data-cache miss demand loads]
+SMT:
+  CORE_CLKS
+	[Core actual clocks when any thread is active on the physical core]
+  CoreIPC
+	[Instructions Per Cycle (per physical core)]
+Summary:
+  CLKS
+	[Per-thread actual clocks when the logical processor is active. This is called 'Clockticks' in VTune]
+  CPI
+	[Cycles Per Instruction (threaded)]
+  CPU_Utilization
+	[Average CPU Utilization]
+  GFLOPs
+	[Giga Floating Point Operations Per Second]

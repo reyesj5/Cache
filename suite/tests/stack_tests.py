@@ -2,13 +2,12 @@
 # coding=utf-8
 
 import sys
+import argparse
 sys.path.insert(0, '../scripts')
 
 from fibonacci import *
 import time
 import multiprocessing
-
-args = sys.argv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -18,7 +17,7 @@ def test1(n = 45, name = 'fib'):
 	for i in range(n):
 		# Measuring how long a script runs
 		#start = time.time()
-		print 'Currently on the', i, 'fibonacci number.'
+		#print 'Currently on the', i, 'fibonacci number.'
 		nth = fib(i)
 		#print 'This fib took', time.time()-start, 'seconds.'
 
@@ -41,11 +40,11 @@ def test3(n = 30, ith = 40):
 	print('Stack Test 3')
 	for i in range(n):
 		# Measuring how long a script runs
-		start = time.time()
-		print 'Currently on the', i, 'iteration.'
+		#start = time.time()
+		#print 'Currently on the', i, 'iteration.'
 		for j in range(ith,ith+2):
 			nth = fib(j)
-		print 'Iteration', i, 'took', time.time()-start, 'seconds.'
+		#print 'Iteration', i, 'took', time.time()-start, 'seconds.'
 
 tests = [test1,test2,test3]
 
@@ -77,7 +76,14 @@ def test(n = 1, cores = multiprocessing.cpu_count()):
 	        break
 
 if __name__ == '__main__':
-	if len(args) == 1:
-		test()
-	else:
-		test(int(args[1]), int(args[2]))
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-t", "--test", type=int, help="Which test to run, default t=1")
+	parser.add_argument("-c", "--cores", type=int, help="The number of cores to use, default c=Number of available CPUs in architecture")
+	args = parser.parse_args()
+	n_test = 1
+	cores = multiprocessing.cpu_count()
+	if not(args.test == None):
+		n_test = args.test
+	if not(args.cores == None):
+		cores = args.cores
+	test(n_test, cores)

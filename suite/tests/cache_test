@@ -2,6 +2,7 @@
 # coding=utf-8
 import sys
 import os.path
+import argparse
 import time
 import list_tests
 import matrix_tests
@@ -12,8 +13,6 @@ import inspect
 from threading import Thread
 import multiprocessing
 
-args = sys.argv
-
 def run_test(test, size = None, iterations = None):
 	global running
 	running = True
@@ -23,7 +22,7 @@ def run_test(test, size = None, iterations = None):
 		if iterations == None:
 			test()
 		else:
-			test(iterations)
+			test(n = iterations)
 	else:
 		if iterations == None:
 			test(size = size)
@@ -33,14 +32,14 @@ def run_test(test, size = None, iterations = None):
 	running = False
 	return
 
-def cache_info(architecture, cores, struct, test, size, iterations):
+def cache_info(architecture, cores, struct, test, size, iterations, worker_id):
 	directory = '../logs/'+ architecture + '/' + struct + '_cache/test_' + str(test)
 	if not os.path.exists(directory):
 		os.makedirs(directory)
 	n = 1
-	while os.path.exists('../logs/'+ architecture + '/' + struct + '_cache/test_' + str(test) + '/' + str(cores) + '_cores_'  + str(iterations) + '_' + str(size) + '_' + str(n) + '.log'):
+	while os.path.exists('../logs/'+ architecture + '/' + struct + '_cache/test_' + str(test) + '/' + str(cores) + '_cores_'  + str(iterations) + '_' + str(size) + '_' + str(worker_id) + "_" + str(n) + '.log'):
 		n += 1
-	path = '../logs/'+ architecture + '/' + struct + '_cache/test_' + str(test) + '/' + str(cores) + '_cores_'  + str(iterations) + '_' + str(size) + '_' + str(n) + '.log'
+	path = '../logs/'+ architecture + '/' + struct + '_cache/test_' + str(test) + '/' + str(cores) + '_cores_'  + str(iterations) + '_' + str(size) + '_' + str(worker_id) + "_" + str(n) + '.log'
 	print ("Saving log at: " + path)
 	log = open(path, 'a')  # so that data written to it will be appended
 	log.flush()
@@ -50,7 +49,9 @@ def cache_info(architecture, cores, struct, test, size, iterations):
 	time.sleep(1)
 	while running:
 		log.flush()
-		command = 'date +"%Y-%m-%d %H:%M:%S:%3N"; timeout -s 2 --preserve-status 1s  perf stat -e cache-misses,cache-references,cpu-cycles,mem-loads,mem-stores,l1d.replacement,l1d_pend_miss.pending,l2_lines_in.all,l2_lines_out.useless_pref,l2_rqsts.all_code_rd,l2_rqsts.all_demand_miss,l2_rqsts.all_pf,l2_rqsts.rfo_hit,l2_rqsts.rfo_miss,longest_lat_cache.miss -p ' + str(os.getpid()) + '; cat /proc/meminfo | grep "Cached"; echo'
+		perf_flags = 'cpu-cycles,cache-references,cache-misses,cpu-clock,L1-dcache-loads,L1-dcache-load-misses,L1-dcache-stores,L1-dcache-store-misses,L1-dcache-prefetches,L1-dcache-prefetch-misses,L1-icache-loads,L1-icache-load-misses,L1-icache-prefetches,L1-icache-prefetch-misses,LLC-loads,LLC-load-misses,LLC-stores,LLC-store-misses,LLC-prefetch-misses,dTLB-loads,dTLB-load-misses,dTLB-stores,dTLB-store-misses,dTLB-prefetches,dTLB-prefetch-misses,iTLB-loads,iTLB-load-misses,branch-loads,branch-load-misses'
+		cache_flags = ''
+		command = 'date +"%Y-%m-%d %H:%M:%S:%3N"; timeout -s 2 --preserve-status 1s perf stat -e cache-misses,cache-references,cpu-cycles,mem-loads,mem-stores,l1d.replacement,l1d_pend_miss.pending,l2_lines_in.all,l2_lines_out.useless_pref,l2_rqsts.all_code_rd,l2_rqsts.all_demand_miss,l2_rqsts.all_pf,l2_rqsts.rfo_hit,l2_rqsts.rfo_miss,longest_lat_cache.miss -p ' + str(os.getpid()) + ' -x ,'
 		#cache = subprocess.Popen(['date +"%Y-%m-%d %H:%M:%S:%3N"; lscpu | grep "cache"; cat /proc/meminfo | grep "Cached"; echo'], stdout=log, stderr=log, shell=True)
 		cache = subprocess.Popen([command], stdout=log, stderr=log, shell=True)
 		cache.wait()
@@ -60,7 +61,7 @@ def cache_info(architecture, cores, struct, test, size, iterations):
 	return
 
 # starts work at a core and keeps track of overall cores being used, size of structure, and # of iterations
-def worker(architecture, cores, struct, test = None, size = None, iterations = None):
+def worker(worker_id, architecture, cores, struct, test = None, iterations = None, size = None):
     #worker function
     if struct == 'matrices':
     	tests = matrix_tests.tests
@@ -70,6 +71,8 @@ def worker(architecture, cores, struct, test = None, size = None, iterations = N
     	tests = stack_tests.tests
     else:
     	raise ValueError("Please choose a set of test(s) to run.")
+
+    print("testing",test)
 
     if test == None:
     	for i in range(len(tests)):
@@ -83,7 +86,7 @@ def worker(architecture, cores, struct, test = None, size = None, iterations = N
     		else:
     			s = size
     		script = Thread(target = run_test, args = [tests[i],s,n])
-    		cache = Thread(target = cache_info, args = [architecture, cores, struct, i+1,s,n])
+    		cache = Thread(target = cache_info, args = [architecture, cores, struct, i+1,s,n, worker_id])
     		script.start()
     		cache.start()
     		script.join()
@@ -91,7 +94,7 @@ def worker(architecture, cores, struct, test = None, size = None, iterations = N
     else:
     	defaults =  inspect.getargspec(tests[test-1])[3]
     	if iterations == None:
-    		n = defaults[0] 
+    		n = defaults[0]  / 100 # temp
     	else:
     		n = iterations
     	if size == None:
@@ -99,36 +102,56 @@ def worker(architecture, cores, struct, test = None, size = None, iterations = N
     	else:
     		s = size
     	script = Thread(target = run_test, args = [tests[test-1],size,iterations])
-    	cache = Thread(target = cache_info, args = [architecture, cores, struct, test,s,n])
+    	cache = Thread(target = cache_info, args = [architecture, cores, struct, test,s,n, worker_id])
     	script.start()
     	cache.start()
     	script.join()
     	cache.join()
 
 if __name__ == '__main__':
-	if len(args) == 1:
-		architecture = 'Zephyrus-M-GM501GS'
-		cores = multiprocessing.cpu_count()
-		struct = 'lists'
-		test = None
-		size = None
-		iterations = None
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-t", "--test", type=int, help="Which test to run, default runs all tests available")
+	parser.add_argument("-c", "--cores", type=int, help="The number of cores to use, default c=Number of available CPUs in architecture")
+	parser.add_argument("-a", "--architecture", type=str, help="The name of the architecture being benchmarked, for log purposes [REQUIRED]")
+	parser.add_argument("-s", "--struct", type=str, help="Which structure to use for benchmarking, e.g. tests using lists, matrices, stack... default s=lists")
+	parser.add_argument("-si", "--size", type=int, help="The size of the struct to use, or for stack, to which fibonacci to calculate.")
+	parser.add_argument("-i", "--iterations", type=int, help="The number of iterations to run the test for")
+	args = parser.parse_args()
+
+	architecture = ''
+	struct = 'lists'
+	test = None
+	cores = multiprocessing.cpu_count()
+	iterations = None
+	size = None
+	
+	if not(args.architecture == None):
+		architecture = args.architecture
 	else:
-		architecture = 'Zephyrus-M-GM501GS'
-		cores = int(args[1])
-		struct = args[2]
-		test = None
-		size = None
-		iterations = None
+		raise ValueError("Need to specify which architecture is being used.")
+	if not(args.struct == None):
+		struct = args.struct
+	if not(args.test == None):
+		n_test = args.test
+	if not(args.cores == None):
+		cores = args.cores
+	if not(args.iterations == None):
+		iterations = args.iterations
+	if not(args.size == None):
+		size = args.size
+
 	# Measuring how long a script runs
 	start = time.time()
 	# turning off watchdog to allow for cache flags
-	cache = subprocess.Popen(['sudo sh -c "echo \'0\' > /proc/sys/kernel/nmi_watchdog"'], shell=True)
-	cache.wait()
+	watchdog = subprocess.Popen(['sudo sh -c "echo \'0\' > /proc/sys/kernel/nmi_watchdog"'], shell=True)
+	watchdog.wait()
+	# changing perf privileges to allow use of controls of the performance events system
+	perf = subprocess.Popen(['sudo sh -c "echo \'-1\' > /proc/sys/kernel/perf_event_paranoid"'], shell=True)
+	perf.wait()
 	time.sleep(1)
 	jobs = []
 	for i in range(cores):
-		p = multiprocessing.Process(target=worker, args = (architecture, cores, struct, test, size, iterations))
+		p = multiprocessing.Process(target=worker, args = (i, architecture, cores, struct, n_test, size, iterations))
 		jobs.append(p)
 		p.start()
 	while True:
@@ -136,8 +159,11 @@ if __name__ == '__main__':
 	        time.sleep(1)
 	    else:
 	    	# turning watchdog back on
-	    	cache = subprocess.Popen(['sudo sh -c "echo \'1\' > /proc/sys/kernel/nmi_watchdog"'], shell=True)
-	    	cache.wait()
+	    	watchdog = subprocess.Popen(['sudo sh -c "echo \'1\' > /proc/sys/kernel/nmi_watchdog"'], shell=True)
+	    	watchdog.wait()
+	    	# removing hanging perf privileges to disallow use of controls of the performance events system
+	    	perf = subprocess.Popen(['sudo sh -c "echo \'3\' > /proc/sys/kernel/perf_event_paranoid"'], shell=True)
+	    	perf.wait()
 	    	time.sleep(1)
 	    	print('All processes done')
 	    	print 'Script took', time.time()-start, 'seconds.'
