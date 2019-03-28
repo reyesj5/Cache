@@ -538,3 +538,36 @@ Lists Test 2
 process id: 20386
 Saving log at: ../logs/Zephyrus-M-GM501GS/lists_cache/test_2/12_cores_312500_4000_9.log
 test2 took 31274.4297259 seconds.
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists
+usage: cache_test [-h] [-t TEST] [-c CORES] [-a ARCHITECTURE] [-s STRUCT]
+                  [-si SIZE] [-i ITERATIONS]
+cache_test: error: unrecognized arguments: 12 lists

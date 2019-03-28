@@ -12,6 +12,7 @@ import subprocess
 import inspect
 from threading import Thread
 import multiprocessing
+from parse import parse
 
 def run_test(test, size = None, iterations = None):
 	global running
@@ -47,17 +48,19 @@ def cache_info(architecture, cores, struct, test, size, iterations, worker_id):
 	cache.wait()
 	log.flush()
 	time.sleep(1)
+	with open('flags_parsed.txt') as f:
+	    content = f.readlines()
+	perf_flags = content[0]
 	while running:
 		log.flush()
-		perf_flags = 'cpu-cycles,cache-references,cache-misses,cpu-clock,L1-dcache-loads,L1-dcache-load-misses,L1-dcache-stores,L1-dcache-store-misses,L1-dcache-prefetches,L1-dcache-prefetch-misses,L1-icache-loads,L1-icache-load-misses,L1-icache-prefetches,L1-icache-prefetch-misses,LLC-loads,LLC-load-misses,LLC-stores,LLC-store-misses,LLC-prefetch-misses,dTLB-loads,dTLB-load-misses,dTLB-stores,dTLB-store-misses,dTLB-prefetches,dTLB-prefetch-misses,iTLB-loads,iTLB-load-misses,branch-loads,branch-load-misses'
-		cache_flags = ''
-		command = 'date +"%Y-%m-%d %H:%M:%S:%3N"; timeout -s 2 --preserve-status 1s perf stat -e cache-misses,cache-references,cpu-cycles,mem-loads,mem-stores,l1d.replacement,l1d_pend_miss.pending,l2_lines_in.all,l2_lines_out.useless_pref,l2_rqsts.all_code_rd,l2_rqsts.all_demand_miss,l2_rqsts.all_pf,l2_rqsts.rfo_hit,l2_rqsts.rfo_miss,longest_lat_cache.miss -p ' + str(os.getpid()) + ' -x ,'
+		command = 'date +"%Y-%m-%d %H:%M:%S:%3N"; timeout -s 2 --preserve-status 1s perf stat -e ' + perf_flags + ' -p ' + str(os.getpid()) + ' -x ,'
 		#cache = subprocess.Popen(['date +"%Y-%m-%d %H:%M:%S:%3N"; lscpu | grep "cache"; cat /proc/meminfo | grep "Cached"; echo'], stdout=log, stderr=log, shell=True)
 		cache = subprocess.Popen([command], stdout=log, stderr=log, shell=True)
 		cache.wait()
 		log.flush()
 		time.sleep(10)
 	log.close()
+	parse(path, path+'.csv', delimeter=',', r = True, n = 83, ignore = 6)
 	return
 
 # starts work at a core and keeps track of overall cores being used, size of structure, and # of iterations
@@ -120,7 +123,7 @@ if __name__ == '__main__':
 
 	architecture = ''
 	struct = 'lists'
-	test = None
+	n_test = None
 	cores = multiprocessing.cpu_count()
 	iterations = None
 	size = None

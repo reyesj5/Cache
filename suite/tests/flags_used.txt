@@ -171,32 +171,3 @@ memory:
        [Cycles while L3 cache miss demand load is outstanding]
   cycle_activity.stalls_l3_miss                     
        [Execution stalls while L3 cache miss demand load is outstanding]
-
-FLOPS:
-  GFLOPs
-	[Giga Floating Point Operations Per Second]
-Memory_BW:
-  MLP
-	[Memory-Level-Parallelism (average number of L1 miss demand load when there is at least 1 such miss)]
-Memory_Bound:
-  Load_Miss_Real_Latency
-	[Actual Average Latency for L1 data-cache miss demand loads]
-  MLP
-	[Memory-Level-Parallelism (average number of L1 miss demand load when there is at least 1 such miss)]
-Memory_Lat:
-  Load_Miss_Real_Latency
-	[Actual Average Latency for L1 data-cache miss demand loads]
-SMT:
-  CORE_CLKS
-	[Core actual clocks when any thread is active on the physical core]
-  CoreIPC
-	[Instructions Per Cycle (per physical core)]
-Summary:
-  CLKS
-	[Per-thread actual clocks when the logical processor is active. This is called 'Clockticks' in VTune]
-  CPI
-	[Cycles Per Instruction (threaded)]
-  CPU_Utilization
-	[Average CPU Utilization]
-  GFLOPs
-	[Giga Floating Point Operations Per Second]

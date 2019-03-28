@@ -3,12 +3,15 @@ for i in 1 2 3 4 5
 do
 	echo "Running script iteration $i"
 	echo "Lists..."
-	#./cache_test 12 lists >> list_script.log 2>&1
+	./cache_test 12 lists >> list_script.log 2>&1
 	#./cache_test -c 12 -s lists -a Zephyrus-M-GM501GS
+	./cache_test -c 12 -s lists -a Zephyrus-M-GM501GS
 	echo "Matrices..."
-	#./cache_test 12 matrices >> matrices_script.log 2>&1
+	./cache_test 12 matrices >> matrices_script.log 2>&1
+	#./cache_test -c 12 -s matrices -a Zephyrus-M-GM501GS
 	./cache_test -c 12 -s matrices -a Zephyrus-M-GM501GS
 	echo "Stack..."
-	#./cache_test 12 stack >> stack_script.log 2>&1
+	./cache_test 12 stack >> stack_script.log 2>&1
+	#./cache_test -c 1 -s stack -a Zephyrus-M-GM501GS -t 1
 	./cache_test -c 12 -s stack -a Zephyrus-M-GM501GS
 done
