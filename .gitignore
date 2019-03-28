@@ -1,2 +1,2 @@
 suite/logs/
-*.pyc
+**.pyc
